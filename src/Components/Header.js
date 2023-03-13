@@ -1,68 +1,78 @@
-import React, { Component } from 'react'
-import { Navbar, Form, Container, Nav, NavLink, Button, FormControl } from 'react-bootstrap'
-import logo from './logo192.png'
-
+import React, { Component } from "react";
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from "react-router-dom";
+  Navbar,
+  Form,
+  Container,
+  Nav,
+  NavLink,
+  Button,
+  FormControl,
+} from "react-bootstrap";
+import logo from "./logo192.png";
 
-import Home from '../Pages/Home'
-import About from '../Pages/About'
-import Contacts from '../Pages/Contacts'
-import Blog from '../Pages/Blog'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default class Header extends Component {
+import Home from "../Pages/Home";
+import About from "../Pages/About";
+import Contacts from "../Pages/Contacts";
+import Blog from "../Pages/Blog";
 
-    render() {
-        return (
-            <>
-                <Router>            
-                <Navbar  collapseOnSelect expand="md" bg="dark" variant="dark">
-                    <Container>
-                        <Navbar.Brand href="/">
-                            <img
-                                src={logo}
-                                height="30"
-                                width="30"
-                                className="d-inline-block align-top"
-                                alt="logo"
-                            /> React site
-                        </Navbar.Brand> 
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav" >
-                            <Nav className="me-auto">
-                                <NavLink as={Link} to ="/">Home</NavLink>
-                                <NavLink as={Link} to="/about">About us</NavLink>
-                                <NavLink as={Link} to="/contacts">Contacts</NavLink>
-                                <NavLink as={Link} to="/blog">Blog</NavLink>
-                                
-                            </Nav>
+export default function Header() {
+  return (
+    <>
+      <Router>
+        <Navbar
+          collapseOnSelect
+          expand="md"
+          bg="light"
+          variant="light"
+          sticky="top"
+        >
+          <Container>
+            <Navbar.Brand href="/">
+              <img
+                src={logo}
+                height="30"
+                width="30"
+                className="d-inline-block align-top"
+                alt="logo"
+              />{" "}
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <NavLink as={Link} to="/">
+                  Home
+                </NavLink>
+                <NavLink as={Link} to="/about">
+                  About us
+                </NavLink>
+                <NavLink as={Link} to="/contacts">
+                  Contacts
+                </NavLink>
+                <NavLink as={Link} to="/blog">
+                  Blog
+                </NavLink>
+              </Nav>
 
-                            <Form inline className="m-2">
-                                <FormControl
-                                    type="text"
-                                    placeholder="Search"
-                                    className="me-sm-2"
-                                />
-                            </Form>
-                            <Button variant="outline-info">
-                                    Search
-                            </Button>
-                            
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
-                    <Routes>
-                        <Route path = "/" element ={<Home/>}/>
-                        <Route path = "/about" element ={<About/>}/>
-                        <Route exact path = "/contacts" element ={<Contacts/>} />
-                        <Route exact path = "/blog" element ={<Blog/>} />
-                    </Routes>
-                </Router>
-            </>
-        )
-    }
+              <Form inline className="m-2">
+                <FormControl
+                  type="text"
+                  placeholder="Search"
+                  className="me-sm-2"
+                />
+              </Form>
+              <Button variant="outline-info">Search</Button>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route exact path="/contacts" element={<Contacts />} />
+          <Route exact path="/blog" element={<Blog />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
